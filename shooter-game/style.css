@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: url('images/bg.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+    user-select: none;
+    overflow: hidden;
+}
+#root{
+width: 100%;
+height: 100%;
+overflow: hidden;
+}
+
+/*Hide Class*/
+.hide{
+    display: none !important;
+}
+
+/*Spider*/
+.spider{
+    position: absolute;
+    width: 400px; 
+    height: 230px;
+    top: 50%;
+    left: 50%;
+    cursor: pointer;
+    animation: popUp 0.8s linear;
+}
+
+/*die animation*/
+.die{
+    animation: die 0.8s linear !important;
+}
+
+/*Bullet*/
+.bullet{
+    position: absolute;
+   width: 400px; 
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   animation: shoot 0.4s linear;
+}
+
+/*Animations*/
+@keyframes shoot {
+    from {transform: scale(1);}
+    to {transform: scale(0);}
+}
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+}
+    70% {
+        transform: scale(0.4);
+        opacity: 0.8;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes die {
+    from {
+        opacity: 1;
+}
+   to{
+        opacity: 0;
+    }
+}
