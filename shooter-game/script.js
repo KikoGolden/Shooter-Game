@@ -28,22 +28,57 @@ setInterval((e)=>{
 
     let root = document.querySelector('#root');
 
+    let spiderDiv = document.createElement('div');
+    spiderDiv.classList.add('spider-container');
+
     let spider = document.createElement('img');
     spider.src = 'images/spider.png'
     spider.classList.add('spider');
-    spider.style.top = y + 'px';
-    spider.style.left = x + 'px';
+    spiderDiv.style.top = y + 'px';
+    spiderDiv.style.left = x + 'px';
+
+    spiderDiv.appendChild(spider);
+
+    //animate spider
+    function animateSpider(){
+      if (spider.style.right == 0) {
+     spider.style.right = '96px';
+  }else if (spider.style.right == '96px') {
+    spider.style.right = '192px';
+ }else if (spider.style.right == '192px') {
+    spider.style.right = '96px';
+ }else if (spider.style.right == '288px') {
+    spider.style.right = 0;
+ }
+
+  setTimeout(()=>{
+     animateSpider();
+  },300)
+}
+    animateSpider();
+
+    function animateWalk(){
+        y = y + 2;
+        spiderDiv.style.top = y + 'px';
+  
+    setTimeout(()=>{
+       animateWalk();
+    },100)
+  }
+      animateWalk();
 
     spider.addEventListener('click',()=>{
         spider.classList.add('die');
         setTimeout(()=>{
-            root.removeChild(spider);
+            root.removeChild(spiderDiv);
         },799);
     })
 
-    root.appendChild(spider);
+    root.appendChild(spiderDiv);
 
 },5000);
+
+
 
 //return random number
 function randomNumber(min, max) { // min and max included 

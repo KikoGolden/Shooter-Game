@@ -20,14 +20,19 @@ overflow: hidden;
 }
 
 /*Spider*/
-.spider{
+.spider-container{
+    width: 96px;
+    overflow: hidden;
     position: absolute;
-    width: 400px; 
-    height: 230px;
     top: 50%;
     left: 50%;
     cursor: pointer;
     animation: popUp 0.8s linear;
+}
+.spider{
+    position: relative;
+    width: 384px; 
+    right: 0px;
 }
 
 /*die animation*/
